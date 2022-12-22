@@ -36,19 +36,18 @@ myStore.subscribe('exampleForm', (newState) => {
 
 function App() {
 
-  // const [name, setName] = useState<any>();
+  const [firstName, setFirstName] = useState<string>();
 
-  // useEffect(() => {
-  //   store.subscribe('exampleForm', (newState) => {
-  //     setName(newState)
-  //   })
-  // }, [])
+  useEffect(() => {
+    myStore.subscribe('exampleForm', (newState: any) => {
+      setFirstName(newState.firstName)
+    })
+  }, [])
 
   return (
     <div className="App">
-      <div>{JSON.stringify(myStore)}</div>
-      {/* <div>{myStore.modules.exampleForm.state.firstName}</div> */}
 
+      <b>My name is: {firstName}</b>
       <div>
         <label>First Name: </label>
         <input type="text" onChange={(e) => {

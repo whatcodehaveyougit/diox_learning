@@ -44,3 +44,7 @@ myStore.mutate('exampleForm', 'CHANGE_VALUE_BANANA', { field: 'name', value: e.t
 // pass something through to the mutation.
 
 
+// ====== Accessing objects of the state in a component
+
+
+
