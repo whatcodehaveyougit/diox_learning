@@ -17,11 +17,11 @@ const myStore = new Store();
 
 // After creating a store it is then adviseable to register modules to it, for example:
 
-myStore.register('exampleForm', exampleForm);
+myStore.register('form1', form1);
 
 // The frame work for a module is as follows
 
-const exampleForm: Module<{ name: string; }> = {
+const form1: Module<{ name: string; }> = {
   state: {
     name: '',
   },
@@ -38,7 +38,7 @@ const exampleForm: Module<{ name: string; }> = {
 
 myStore.mutate('nameOfModule', 'MUTATION_NAME', { field: 'name', value: e.target.value });
 
-myStore.mutate('exampleForm', 'CHANGE_VALUE_BANANA', { field: 'name', value: e.target.value });
+myStore.mutate('form1', 'CHANGE_VALUE_BANANA', { field: 'name', value: e.target.value });
 
 // Here we are calling the `mutate` method on myStore, we specify the name of the Module and then
 // pass something through to the mutation.
@@ -51,7 +51,7 @@ myStore.mutate('exampleForm', 'CHANGE_VALUE_BANANA', { field: 'name', value: e.t
 const [firstName, setFirstName] = useState<string>();
 
 useEffect(() => {
-  myStore.subscribe('exampleForm', (newState: any) => {
+  myStore.subscribe('form1', (newState: any) => {
     setFirstName(newState.firstName)
   })
 }, [])
