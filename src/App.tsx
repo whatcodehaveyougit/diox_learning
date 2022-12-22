@@ -40,6 +40,7 @@ function App() {
 
   useEffect(() => {
     myStore.subscribe('exampleForm', (newState: any) => {
+      // Whenever there is a change to myStore, this will get updated
       setFirstName(newState.firstName)
     })
   }, [])

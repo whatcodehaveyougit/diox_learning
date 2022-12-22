@@ -44,7 +44,26 @@ myStore.mutate('exampleForm', 'CHANGE_VALUE_BANANA', { field: 'name', value: e.t
 // pass something through to the mutation.
 
 
-// ====== Accessing objects of the state in a component
+// ====== Accessing state to display on the page
+
+// The first way to do it
+
+const [firstName, setFirstName] = useState<string>();
+
+useEffect(() => {
+  myStore.subscribe('exampleForm', (newState: any) => {
+    setFirstName(newState.firstName)
+  })
+}, [])
+
+// Here you create some state and then inside a useEffect() you subscribe to the store and when that
+// updates it will update the local state.  This means that there is only 1 source of truth:
+// the diox store, then only when that updates does the local state change.
+
+// Then you can of course just display this on the page as it is just normal state
+
+<b>My name is: {firstName}</b>
+
 
 
 
